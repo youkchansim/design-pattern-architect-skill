@@ -1,0 +1,43 @@
+{
+  "name": "design-pattern-architect-skill",
+  "version": "1.0.0",
+  "description": "Systematic software design skill using OOP principles and design patterns, with over-engineering prevention",
+  "main": "design-pattern-architect/SKILL.md",
+  "scripts": {
+    "install-skill": "bash install.sh",
+    "uninstall-skill": "bash uninstall.sh",
+    "validate": "bash scripts/validate.sh"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "skill",
+    "design-patterns",
+    "software-design",
+    "architecture",
+    "oop",
+    "solid",
+    "refactoring"
+  ],
+  "author": "youkchansim",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/youkchansim/design-pattern-architect-skill"
+  },
+  "bugs": {
+    "url": "https://github.com/youkchansim/design-pattern-architect-skill/issues"
+  },
+  "homepage": "https://github.com/youkchansim/design-pattern-architect-skill#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "design-pattern-architect/**/*",
+    "install.sh",
+    "uninstall.sh",
+    "scripts/**/*",
+    "README.md",
+    "LICENSE"
+  ]
+}
