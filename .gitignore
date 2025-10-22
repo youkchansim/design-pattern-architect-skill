@@ -22,8 +22,10 @@ Thumbs.db
 
 # Distribution
 dist/
-*.zip
-*.tar.gz
+
+# Release archives (keep versioned releases, ignore temp builds)
+!design-pattern-architect-skill-v*.zip
+!design-pattern-architect-skill-v*.tar.gz
 
 # Temporary files
 tmp/
