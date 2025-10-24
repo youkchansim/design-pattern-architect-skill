@@ -50,11 +50,38 @@ design-pattern-architect/
         └── over-engineering-avoided.md  # Avoiding complexity
 ```
 
+## Installation
+
+### Method 1: Plugin Marketplace (Recommended)
+
+**If you have this skill's GitHub repository:**
+
+```
+/plugin marketplace add youkchansim/architect-skills
+/plugin install design-pattern-architect@design-pattern-architect-skills
+```
+
+This is the cleanest installation method and supports automatic updates.
+
+### Method 2: Manual Install
+
+Copy the skill directory to `~/.claude/skills/`:
+
+```bash
+cp -r design-pattern-architect ~/.claude/skills/
+```
+
 ## How to Use
 
 ### 1. Activate the Skill
 
-In Claude Code or Claude.ai, reference this skill when working on software design tasks:
+In Claude Code, reference this skill when working on software design tasks:
+
+```
+/skill design-pattern-architect
+```
+
+Or mention it in your prompt:
 
 ```
 "Use the design-pattern-architect skill to help me design a [feature/system]"

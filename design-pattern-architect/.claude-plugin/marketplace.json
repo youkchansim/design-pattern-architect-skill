@@ -1,0 +1,22 @@
+{
+  "name": "design-pattern-architect-skills",
+  "owner": {
+    "name": "iOSCS",
+    "email": "dbrckstla@naver.com"
+  },
+  "metadata": {
+    "description": "Design pattern analysis and application toolkit",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "design-pattern-architect",
+      "description": "Analyzes requirements to identify design problems and applies appropriate design patterns based on object-oriented principles. Emphasizes avoiding over-engineering and choosing simplicity when patterns are unnecessary.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./"
+      ]
+    }
+  ]
+}
