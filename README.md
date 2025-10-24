@@ -56,35 +56,35 @@ This skill helps you analyze requirements, identify design problems, and apply a
 
 ## 📦 Installation
 
-### Quick Install (Recommended)
+### Plugin Marketplace (Recommended)
 
-```bash
-# Clone or download this repository
-cd ~/architect-skills
+Install directly from Claude Code:
 
-# Run installation script
-bash install.sh
+```
+/plugin marketplace add youkchansim/design-pattern-architect-skill
+/plugin install design-pattern-architect@design-pattern-architect-skills
 ```
 
-The skill will be installed to `~/.claude/skills/design-pattern-architect/`
+**Benefits:**
+- ✓ One-command installation
+- ✓ Automatic updates
+- ✓ Clean uninstallation
+- ✓ Version management
 
-### Manual Install
+### Manual Install (Alternative)
+
+If you prefer manual installation:
 
 ```bash
+# Clone the repository
+git clone https://github.com/youkchansim/design-pattern-architect-skill.git
+cd design-pattern-architect-skill
+
 # Copy skill directory
 cp -r design-pattern-architect ~/.claude/skills/
 
 # Verify installation
 ls -la ~/.claude/skills/design-pattern-architect/
-```
-
-### Verification
-
-```bash
-# Validate skill structure
-npm run validate
-# or
-bash scripts/validate.sh
 ```
 
 ## 🚀 Usage
@@ -308,16 +308,6 @@ Each pattern includes:
 - Making trivial code changes
 - Time-critical quick fixes
 - Problem is already well-understood and simple
-
-## 🔧 Uninstallation
-
-```bash
-# Run uninstall script
-bash uninstall.sh
-
-# Or manually remove
-rm -rf ~/.claude/skills/design-pattern-architect
-```
 
 ## 📝 Contributing
 
