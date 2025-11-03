@@ -1,253 +1,273 @@
 # Design Pattern Architect Skill
 
-A comprehensive skill for systematic software design using object-oriented principles and design patterns.
+A systematic software design skill that helps choose appropriate design patterns while avoiding over-engineering.
 
 ## Overview
 
-This skill helps analyze requirements, identify design problems, and apply appropriate design patterns (or choose simpler approaches when patterns aren't necessary). It emphasizes avoiding over-engineering and choosing simplicity when appropriate.
+This skill analyzes requirements, identifies design problems, and applies appropriate design patterns **or chooses simpler approaches** when patterns aren't necessary.
 
 **Core Philosophy**:
-- Design patterns are **starting points**, not **absolute answers**
-- Patterns can and should be **modified** to fit the context
-- **Simplicity over complexity** - avoid over-engineering
-- **Pattern-less design is valid** - not every problem needs a pattern
-
-## Language Convention
-
-- **Documentation**: English
-- **Communication/Output**: Matches your input language
-  - Korean input → Korean output (한국어)
-  - English input → English output
-  - Other languages → Same language output
-
-## Language-Agnostic Design
-
-**Code examples use Swift, but patterns work in any OOP language:**
-- Java, C#, TypeScript, Python, Kotlin, Go, Rust, etc.
-- Patterns are **concepts**, not code templates
-- Focus on **why** and **when**, not just **how**
-- Adapt syntax to your language while keeping structure
-
-## Skill Structure
-
-```
-design-pattern-architect/
-├── SKILL.md                           # Main skill instructions
-├── README.md                          # This file
-├── references/                        # Reference documentation
-│   ├── oop-principles.md             # SOLID, DRY, KISS, YAGNI
-│   ├── pattern-selection.md          # Problem-to-pattern mapping guide
-│   ├── creational-patterns.md        # Singleton, Factory, Builder, etc.
-│   ├── structural-patterns.md        # Adapter, Decorator, Facade, etc.
-│   └── behavioral-patterns.md        # Observer, Strategy, Command, etc.
-└── assets/
-    ├── templates/                    # Document templates
-    │   ├── design-document.md       # Complete design document template
-    │   └── pattern-analysis.md      # Pattern evaluation template
-    └── examples/                     # Real-world examples
-        ├── simple-over-pattern.md   # Choosing simple approach
-        ├── pattern-applied-modified.md  # Pattern with modifications
-        └── over-engineering-avoided.md  # Avoiding complexity
-```
+- **Simplicity first** - No pattern is the best pattern
+- **YAGNI** - Don't solve future problems
+- **Patterns are tools, not goals** - Use when beneficial, skip when not
+- **Context matters** - Same problem, different contexts, different solutions
 
 ## Installation
 
 ### Method 1: Plugin Marketplace (Recommended)
 
-**If you have this skill's GitHub repository:**
-
-```
+```bash
 /plugin marketplace add youkchansim/architect-skills
 /plugin install design-pattern-architect@design-pattern-architect-skills
 ```
 
-This is the cleanest installation method and supports automatic updates.
-
 ### Method 2: Manual Install
-
-Copy the skill directory to `~/.claude/skills/`:
 
 ```bash
 cp -r design-pattern-architect ~/.claude/skills/
 ```
 
-## How to Use
+## How It Works
 
-### 1. Activate the Skill
-
-In Claude Code, reference this skill when working on software design tasks:
+### 6-Phase Design Process
 
 ```
-/skill design-pattern-architect
+Phase 1: Requirements Analysis
+├─ Identify design problems
+├─ Assess constraints
+└─ Simplicity check first!
+
+Phase 2: OOP Principles Review
+├─ SOLID principles check
+└─ Simple refactoring first
+
+Phase 3: Pattern Selection (if needed)
+├─ Problem → Pattern mapping
+├─ Over-engineering risk assessment
+└─ Consider platform alternatives
+
+Phase 4: Design Documentation
+└─ Document decisions and trade-offs
+
+Phase 5: Workflow Handoff
+└─ Pass context to implementation/review
+
+Phase 6: Output
+└─ Respond in user's language
 ```
 
-Or mention it in your prompt:
+### Over-Engineering Detection
+
+Built-in weighted scoring system:
 
 ```
-"Use the design-pattern-architect skill to help me design a [feature/system]"
+Questions (Yes = add %):
+├─ YAGNI: Solving future problems? (35%)
+├─ Team: Will team struggle? (25%)
+├─ Necessity: Works without pattern? (20%)
+├─ Clarity: Adds complexity? (15%)
+└─ Time: Worth the effort? (5%)
+
+Score > 50%: Simplify! ❌
+Score < 35%: Pattern appropriate ✅
 ```
 
-### 2. Design Process
+## File Structure
 
-The skill follows a systematic 5-phase process:
+```
+design-pattern-architect/
+├── SKILL.md (260 lines)              # Main workflow
+├── references/
+│   └── pattern-selection.md (328 lines)  # Problem→Pattern mapping
+├── assets/
+│   ├── templates/
+│   │   ├── design-document.md        # Design doc template
+│   │   └── pattern-analysis.md       # Pattern evaluation template
+│   └── examples/
+│       ├── simple-over-pattern.md    # Pattern avoided
+│       ├── pattern-applied-modified.md  # Pattern with modifications
+│       └── over-engineering-avoided.md  # Over-engineering case
+└── README.md                          # This file
 
-1. **Requirements Analysis** - Identify design problems
-2. **OOP Principles Review** - Apply SOLID, DRY, KISS, YAGNI
-3. **Pattern Selection** (if needed) - Choose and evaluate patterns
-4. **Design Documentation** - Document decisions and trade-offs
-5. **Output** - Communicate in Korean
+Total: ~590 lines of core content
+```
 
-### 3. Key Features
-
-- **Over-Engineering Detection**: Built-in checks to avoid unnecessary complexity
-- **Pattern Modifications**: Guidance on adapting patterns to your context
-- **Real-World Examples**: Three detailed case studies
-- **Template Documents**: Ready-to-use design documentation templates
-- **Language Separation**: English docs, Korean communication
-
-## When to Use This Skill
+## When to Use
 
 ✅ **Use when**:
 - Designing new features or systems
 - Refactoring complex code
 - Evaluating architectural decisions
-- Need systematic approach to design problems
-- Want to avoid over-engineering
+- Need systematic design approach
+- Want workflow orchestration (design → implementation → review)
 
 ❌ **Don't use when**:
 - Writing simple utility functions
-- Making trivial code changes
+- Making trivial changes
 - Time-critical quick fixes
-- Problem is already well-understood
 
-## Core Principles
+## Key Features
 
-### 1. Simplicity First
-Start with the simplest solution. Add patterns only when:
-- Problem actually exists (not hypothetical)
-- Simple approach becomes painful
-- Benefits clearly outweigh costs
+### 1. Workflow Orchestration ⭐
 
-### 2. Pattern Modification
-Patterns are guidelines, not rigid rules:
-- Adapt to your context
-- Add production concerns (async, monitoring, retry)
-- Remove unnecessary complexity
+Seamless handoff between stages:
 
-### 3. Over-Engineering Awareness
-Built-in assessment with 5 key questions:
-- Would system work without this pattern?
-- Does it make code harder to understand?
-- Are we solving non-existent problems?
-- Can team maintain this?
-- Is implementation time worth it?
+```
+Design → Implementation → Review
+(Context automatically preserved)
+```
 
-3+ "Yes" answers = Simplify!
+### 2. Pattern Decision Guide
 
-## Reference Files
+Maps problems to patterns with alternatives:
 
-### Core Principles
-- **oop-principles.md**: SOLID principles with examples, when to apply/violate
-- **pattern-selection.md**: Problem-to-pattern mapping, decision trees
-- **language-examples.md**: ⭐ NEW - Multi-language pattern examples (Swift, TypeScript, Python, Java, Go)
+```
+Problem: Complex object construction
+├─ Pattern: Builder
+└─ Alternative: Default parameters (if language supports)
 
-### Error Handling
-- **error-handling-guide.md**: Production-grade error handling best practices
+Problem: One-to-many notification
+├─ Pattern: Observer
+└─ Alternative: Platform features (Combine, RxSwift, LiveData)
+```
 
-### Pattern Catalogs
-- **creational-patterns.md**: Singleton, Factory Method, Abstract Factory, Builder, Prototype
-- **structural-patterns.md**: Adapter, Bridge, Composite, Decorator, Facade, Proxy, Flyweight
-- **behavioral-patterns.md**: Observer, Strategy, Command, State, Template Method, Chain of Responsibility, Iterator
+### 3. Language Agnostic
 
-Each pattern includes:
-- Problem it solves
-- When to use / when NOT to use
-- Standard structure
-- Variations
+Patterns are concepts, not code:
+- Works with any OOP language
+- Documentation in English
+- Output matches your input language
+
+### 4. Anti-Over-Engineering
+
+Proactive warnings:
+- "This pattern might be overkill"
+- "Simple if-else would work here"
+- "Platform already provides this"
+
+## Quick Example
+
+```
+User: "Design a payment system with credit card and PayPal"
+
+Skill Output (in user's language):
+
+Phase 1: Analysis
+- Problem: Multiple payment methods
+- Constraint: Runtime selection needed
+
+Phase 2: SOLID Check
+- Current approach would violate OCP
+
+Phase 3: Pattern Selection
+- Candidate: Strategy pattern
+- Over-engineering score: 20% ✅ (appropriate)
+- Alternative considered: Simple if-else (rejected: hard to extend)
+
+Phase 4: Design
+[Provides design document]
+
+Phase 5: Handoff
+- Ready for implementation
+- Context: 2 payment strategies, extensible for future methods
+```
+
+## Pattern Coverage
+
+The skill references all major GoF patterns but focuses on **decision-making**:
+
+**Creational**: Singleton, Factory Method, Abstract Factory, Builder, Prototype
+**Structural**: Adapter, Bridge, Composite, Decorator, Facade, Proxy, Flyweight
+**Behavioral**: Observer, Strategy, Command, State, Template Method, Chain of Responsibility, Iterator
+
+For each pattern:
+- When to use / **When NOT to use** ⭐
 - Trade-offs
-- Language-specific alternatives
+- Simpler alternatives
+- Over-engineering risk level
 
-### Templates
-- **design-document.md**: Complete design doc with all sections
-- **pattern-analysis.md**: Detailed pattern evaluation template
+## Best Practices
 
-### Examples
-- **simple-over-pattern.md**: Authentication system - pattern avoided
-- **pattern-applied-modified.md**: Payment system - Strategy pattern with modifications
-- **over-engineering-avoided.md**: Notification system - 7 patterns rejected
+### Do's ✅
+- Start simple, evolve if needed
+- Document the "why"
+- Consider team familiarity
+- Use platform features first
+- Modify patterns to fit context
 
-## Quick Start Example
+### Don'ts ❌
+- Don't pattern-first (problem-first!)
+- Don't solve future problems (YAGNI)
+- Don't cargo-cult patterns
+- Don't ignore context
+- Don't skip trade-off analysis
 
+## Use Cases
+
+### 1. Solo Development
 ```
-User: "I need to design a payment processing system that supports
-       multiple payment methods (credit card, PayPal, Apple Pay)"
-
-Claude (with this skill):
-1. Analyzes requirements
-2. Identifies design problem: multiple algorithms with runtime selection
-3. Evaluates pattern necessity (yes, 3+ methods)
-4. Recommends Strategy pattern with practical modifications (async, validation, retry)
-5. Provides design document in English
-6. Explains decision in Korean to user
-
-Output (Korean):
-"3가지 결제 수단이 실제로 필요하므로 Strategy 패턴이 적합합니다.
-단, 표준 패턴을 다음과 같이 수정했습니다:
-1. async/await 지원 (비동기 결제 API)
-2. 검증 로직 추가 (비용 절감)
-3. 재시도 메커니즘 (성공률 향상)
-..."
+"Design a user authentication system"
+→ Systematic design + rationale documentation
 ```
 
-## Tips
+### 2. Team Workflow
+```
+"Design → Review → Implement authentication"
+→ Design handoff to code review → Implementation
+```
 
-### Do's
-✅ Start simple, evolve if needed
-✅ Document the "why" behind decisions
-✅ Embrace pattern variations
-✅ Question pattern necessity
-✅ Consider maintenance burden
+### 3. Refactoring
+```
+"Refactor this 500-line function"
+→ Pattern necessity check → Simple refactoring suggested
+```
 
-### Don'ts
-❌ Don't pattern-first (problem-first!)
-❌ Don't over-engineer for hypothetical futures
-❌ Don't cargo-cult patterns
-❌ Don't skip trade-off analysis
-❌ Don't ignore team familiarity
-
-## Success Metrics
-
-Good design with this skill:
-- **Clear problem-solution mapping**: Every pattern addresses specific problem
-- **Appropriate complexity**: Complexity matches problem size
-- **Team understanding**: Team can explain design in 5 minutes
-- **Easy to modify**: Changes are localized and safe
-- **Production-ready**: Includes monitoring, error handling, timeouts
+### 4. Learning
+```
+"When should I use Factory vs Builder?"
+→ Problem-based comparison with examples
+```
 
 ## Contributing
 
-To extend this skill:
-1. Add new patterns to appropriate reference file
-2. Include real-world examples with metrics
-3. Update pattern-selection.md with new mappings
-4. Follow existing format and language conventions
+This is an open-source skill. Contributions welcome!
 
-## Version History
+1. **Add patterns**: Update `pattern-selection.md`
+2. **Add examples**: Create in `assets/examples/`
+3. **Improve workflow**: Enhance `SKILL.md` phases
 
-- **v1.0** (2025-10-22): Initial release
-  - Complete pattern catalog (Creational, Structural, Behavioral)
-  - OOP principles reference
-  - Pattern selection guide
-  - Over-engineering detection
-  - Real-world examples
-  - Documentation templates
+Guidelines:
+- Keep files concise (Claude already knows patterns)
+- Focus on decision-making, not pattern explanation
+- Real-world examples with context
+- Follow existing language conventions
+
+## Why This Skill?
+
+**What Claude already knows:**
+- ✅ All GoF patterns
+- ✅ SOLID principles
+- ✅ Anti-patterns
+
+**What this skill adds:**
+- ✅ Systematic decision workflow
+- ✅ Over-engineering prevention
+- ✅ Workflow orchestration (design → dev → review)
+- ✅ Context-aware pattern selection
+- ✅ Team and project context consideration
 
 ## License
 
-This skill is provided as-is for educational and professional use.
+MIT License - Use freely for personal or commercial projects.
+
+## Version
+
+**v1.2.0** (2025-11-03)
+- Removed redundant pattern catalogs (Claude already knows)
+- Added workflow handoff capability
+- Streamlined to 590 core lines
+- Enhanced over-engineering detection
 
 ---
 
 **Remember**: The best pattern is often the one you don't need.
-
-**철학**: 최고의 패턴은 사용하지 않는 패턴입니다.
